@@ -5,10 +5,7 @@ export const userReducer = createReducer([], {
    [addToCart]: (state, action) => [...state, action.payload],
   [removeFromCartByID]: (state, action) => [...state.filter(cartItem => cartItem.id !== action.payload)],
     [toggleCompleted]:(state, { payload }) =>
-    
-    
-    
-    state.map(todo =>
+     state.map(todo =>
       todo.id === payload ? { ...todo, completed: !todo.completed } : todo,
     ),
 });

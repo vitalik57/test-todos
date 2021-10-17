@@ -1,7 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addAllComments, addNewComment } from "./commentsActions";
-
+import { removeFromCommentsByID, addNewComment,toggleCommentsCompleted } from "./commentsActions";
+  // [addToCart]: (state, action) => [...state, action.payload],
 export const comentReducer = createReducer([], {
-  [addAllComments]: (_, { payload }) => payload,
-  [addNewComment]: (state, { payload }) => [...state, payload]
+  [addNewComment]: (state, action) => [...state, action.payload],
+  [removeFromCommentsByID]: (state, action) => [...state.filter(cartItem => cartItem.id !== action.payload)],
+    [toggleCommentsCompleted]:(state, { payload }) =>
+     state.map(todo =>
+      todo.id === payload ? { ...todo, completed: !todo.completed } : todo,
+    ),
 });

@@ -7,8 +7,8 @@ const REMOVEFROMCARTBYID = "removeFromCartByID";
 const addToCart = createAction(ADDTOCART);
 const removeFromCartByID = createAction(REMOVEFROMCARTBYID);
 const toggleCompleted = createAction(
-  'todos/toggleCompleted',
+  'toggleCompleted',
 );
 
 
-export { ADDTOCART, REMOVEFROMCARTBYID  };
+// export { ADDTOCART, REMOVEFROMCARTBYID  };
