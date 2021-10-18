@@ -1,11 +1,11 @@
-import React from "react";
-import Main from "./main/Main";
+import React, { lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import CreateTodo from "./Components/CreateTodo";
 import NotFound from "./Components/NotFound";
-import HomePage from "./Components/HomePage";
 import styled from "./App.module.css";
+const Homepage = lazy(() => import("./Components/HomePage"));
+const Main = lazy(() => import("./main/Main"));
+const CreateTodo = lazy(() => import("./Components/CreateTodo"));
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         </li>
       </ul>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={Homepage} />
         <Route exact path="/todos" component={Main} />
         <Route exact path="/create-todos" component={CreateTodo} />
         <Route component={NotFound} />
